@@ -1,4 +1,5 @@
 var currentGameState = 'beginningGameMode'
+var restartGame = 'beginningGameMode'
 var gameCardsDrawn = 'cardsDrawn'
 var showGameResults = 'showGameResults'
 var hitOrStandMode = 'hitOrStand'
@@ -210,6 +211,11 @@ var main = function (input) {
     else {
       outputMessage = 'Invalid input. Please type either "hit" or "stand".<br><br>' + displayHands(playerHand, dealerHand);
     }
+
     return outputMessage;
   }
+  if(currentGameState == showGameResults){
+      var playAgain = resetGame()
+      var outputMessage = 'Lets play again!'; playAgain;
+    return outputMessage}
 };
