@@ -141,6 +141,7 @@ var main = function (input) {
   var outputMessage = '';
   var youWin = '<img src="https://i.pinimg.com/originals/4f/e7/8f/4fe78fa04e1289f28e9544f82f42b1ba.gif"/>';
 
+
   if (currentGameState == 'beginningGameMode') {
     gameDeck = createNewDeck();
 
@@ -156,17 +157,17 @@ var main = function (input) {
 
   if (currentGameState == gameCardsDrawn) {
     var playerHasBlackJack = checkForBlackJack(playerHand);
-    var dealerHasBlackJack = checkForBlackJack(dealerHand);
+    var dealerHasBlackJack = checkForBlackJack(dealerHand); 
 
     if (playerHasBlackJack == true || dealerHasBlackJack == true) {
       if (playerHasBlackJack == true && dealerHasBlackJack == true) {
-        outputMessage = displayHands(playerHand, dealerHand) + '<br>Its a Black Jack Tie!'; 
+        outputMessage = displayHands(playerHand, dealerHand) + '<br>Its a Black Jack Tie!'; currentGameState =showGameResults
       } 
       else if (playerHasBlackJack == true && dealerHasBlackJack == false) {
-        outputMessage =  displayHands(playerHand, dealerHand) + '<br>Player wins by Black Jack!' + youWin
+        outputMessage =  displayHands(playerHand, dealerHand) + '<br>Player wins by Black Jack! <br>' + youWin ; currentGameState =showGameResults
       } 
       else {
-        outputMessage = displayHands(playerHand, dealerHand) + '<br>Dealer wins by Black Jack!';
+        outputMessage = displayHands(playerHand, dealerHand) + '<br>Dealer wins by Black Jack!'; currentGameState =showGameResults
       }
     }
     else {
@@ -180,12 +181,12 @@ var main = function (input) {
 
 
   if (currentGameState == hitOrStandMode) {
-    if (input == 'hit') {
+    if (input == 'hit' || input == 'Hit') {
       playerHand.push(gameDeck.pop());
       outputMessage = displayHands(playerHand, dealerHand) + '<br> You drew another card. <br>Please input "hit" or "stand".'
     }
     
-    else if (input == 'stand') {
+    else if (input == 'stand' || input == 'Stand') {
       var playerHandTotalValue = calculateTotalHandValue(playerHand);
       var dealerHandTotalValue = calculateTotalHandValue(dealerHand);
 
@@ -201,7 +202,7 @@ var main = function (input) {
       
       else if ((playerHandTotalValue > dealerHandTotalValue && playerHandTotalValue <= 21) ||
                 (playerHandTotalValue <= 21 && dealerHandTotalValue > 21)) { 
-        outputMessage = displayHands(playerHand, dealerHand) + "<br>Player wins!" + displayHandTotalValues(playerHandTotalValue, dealerHandTotalValue) + youWin
+        outputMessage = displayHands(playerHand, dealerHand) + "<br>Player wins!" + displayHandTotalValues(playerHandTotalValue, dealerHandTotalValue) + '<br>' + youWin
       } 
 
       else {
