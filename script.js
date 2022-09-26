@@ -139,7 +139,7 @@ var resetGame = function (){
 
 var main = function (input) {
   var outputMessage = '';
-  var youWin = '<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F442267625903181064%2F&psig=AOvVaw2Tf9yytYdNKWa_ckOtDzwy&ust=1664282899838000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJie2Yq_svoCFQAAAAAdAAAAABAM"/>';
+  var youWin = '<img src="https://i.pinimg.com/originals/4f/e7/8f/4fe78fa04e1289f28e9544f82f42b1ba.gif"/>';
 
   if (currentGameState == 'beginningGameMode') {
     gameDeck = createNewDeck();
