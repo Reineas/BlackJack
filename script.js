@@ -8,7 +8,7 @@ var dealerHand = [];
 
 var makeDeck = function () {
   var cardDeck = [];
-  var suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+  var suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
 
   var suitIndex = 0;
   while (suitIndex < suits.length) {
@@ -136,8 +136,10 @@ var resetGame = function (){
   dealerHand = [];
 }
 
+
 var main = function (input) {
   var outputMessage = '';
+  var youWin = '<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F442267625903181064%2F&psig=AOvVaw2Tf9yytYdNKWa_ckOtDzwy&ust=1664282899838000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJie2Yq_svoCFQAAAAAdAAAAABAM"/>';
 
   if (currentGameState == 'beginningGameMode') {
     gameDeck = createNewDeck();
@@ -147,8 +149,8 @@ var main = function (input) {
     dealerHand.push(gameDeck.pop());
     dealerHand.push(gameDeck.pop());
     currentGameState = gameCardsDrawn;
-    outputMessage = 'Everyone has been dealt a card. Click button to calculate cards!';
-    return outputMessage;
+    outputMessage = 'Everyone has been dealt a card. Click button to calculate cards!'
+    return outputMessage 
   }
 
 
@@ -161,10 +163,10 @@ var main = function (input) {
         outputMessage = displayHands(playerHand, dealerHand) + '<br>Its a Black Jack Tie!'; 
       } 
       else if (playerHasBlackJack == true && dealerHasBlackJack == false) {
-        outputMessage = displayHands(playerHand, dealerHand) + '<br>Player wins by Black Jack!';
+        outputMessage =  displayHands(playerHand, dealerHand) + '<br>Player wins by Black Jack!' + youWin
       } 
       else {
-        outputMessage = displayHands(playerHand, dealerHand) + '<br>Dealer wins by Black Jack!'; c
+        outputMessage = displayHands(playerHand, dealerHand) + '<br>Dealer wins by Black Jack!';
       }
     }
     else {
@@ -199,7 +201,7 @@ var main = function (input) {
       
       else if ((playerHandTotalValue > dealerHandTotalValue && playerHandTotalValue <= 21) ||
                 (playerHandTotalValue <= 21 && dealerHandTotalValue > 21)) { 
-        outputMessage = displayHands(playerHand, dealerHand) + "<br>Player wins!" + displayHandTotalValues(playerHandTotalValue, dealerHandTotalValue); 
+        outputMessage = displayHands(playerHand, dealerHand) + "<br>Player wins!" + displayHandTotalValues(playerHandTotalValue, dealerHandTotalValue) + youWin
       } 
 
       else {
@@ -218,4 +220,4 @@ var main = function (input) {
       var playAgain = resetGame()
       var outputMessage = 'Lets play again!'; playAgain;
     return outputMessage}
-};
+}
